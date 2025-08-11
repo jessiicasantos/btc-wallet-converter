@@ -1,91 +1,69 @@
-<p>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIAOtqQ5is5vwbcEn0ZahZfMxz1QIeAYtFfnLdkCXu1sqAGbnX" width="300">
- </p>
+# React + TypeScript + Vite
 
-## Desafio para candidatos à vaga de Desenvolvedor Front End (Jr/Pleno/Sênior).
-Olá caro desenvolvedor, nosso principal objetivo é conseguir ver a lógica implementada independente
-da sua experiência, framework ou linguagem utilizada para resolver o desafio. Queremos avaliar a sua
-capacidade em aplicar as regras de négocios na aplicação, separar as responsabilidades e ter um código
-legível para outros desenvolvedores, as instruções nesse projeto são apenas um direcional para entregar
-o desafio mas pode ficar livre para resolver da forma que achar mais eficiente. 🚀
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Não deixe de enviar o seu teste mesmo que incompleto!
+Currently, two official plugins are available:
 
-## Tecnologias a serem utilizadas:
-* Vue ou React
-* Vite, Nuxt ou Nextjs
-* TypeScript
-* Tailwindcss
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Entrega:
-Para iniciar o teste, faça um fork deste repositório, crie uma branch com o seu nome completo
-e depois envie-nos o pull request. 
-Se você apenas clonar o repositório não vai conseguir fazer push e depois vai ser mais complicado
-fazer o pull request.
+## Expanding the ESLint configuration
 
-Envie também seu LinkedIn ou currículo para vagas@oliveiratrust.com.br.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## O que vamos avaliar:
-- Legibilidade do código
-- Fidelização do protótipo fornecido
-- Modularização
-- Lógica para aplicar a regra de negócio
-- Experiência do usuário
-- Implementação das APIs
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## Instruções para o desafio:
-Você deve implementar um aplicativo feito com Vite, Nuxt ou Nextjs utilizando uma API de usuários fornecida no próprio projeto e uma API externa de conversão de moedas.
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-## Obrigatórios:
-- Acompanhar identidade visual do [protótipo fornecido](https://www.figma.com/proto/AO265OINopUSibxX8Dd4A6/Desafio-Front-End?page-id=0%3A1&node-id=2%3A362&viewport=314%2C48%2C0.15&scaling=contain&starting-point-node-id=2%3A362)
-- Listar os dados da API de usuários em uma tabela
-    - Deve conter todos os dados que achar relevante pela API (http://localhost:3004/users)
-    - Botões funcionais de editar(modal) e deletar registro p/ cada elemento
-- Possibilidade de adicionar novas carteiras através de um modal
-- Paginação da listagem (Você pode usar [esquemas](https://github.com/typicode/json-server#paginate) do json-server)
-- Adicionar um filtro para listagem (Você pode usar [esquemas](https://github.com/typicode/json-server#full-text-search) do json-server)
-- Conversão do saldo Bitcoin (BTC) de cada carteira para moeda escolhida. Ex.: BTC para BRL, USD, etc
-
-Pode utilizar qualquer API para conversão de moedas, mas recomendamos essa aqui: [https://docs.awesomeapi.com.br/api-de-moedas](https://docs.awesomeapi.com.br/api-de-moedas) pela facilidade e boa documentação.
-
-#### Exemplo de conversão da moeda:
-- **Parâmetros de entrada**:
-    - Moeda de origem: Bitcoin (BTC)
-    - Moeda de destino: Real (BRL)
-    - Valor para conversão ex.: BTC 0.2242509
-- **Parâmetros de saída**:
-    - Moeda de origem: Bitcoin (BTC)
-    - Moeda de destino: Real (BRL)
-    - Valor para conversão ex.: BTC 0.2242509
-    - Valor comprado em "Moeda de destino" ex.: R$ 53.054,00
-- **Critérios de aceitação**:
-    - Ao criar ou editar uma carteira, deve ser possível inserir um valor de compra tendo como resultado o valor que será adquirido na criptomoeda de destino.
-    
-#### Informações úteis da API de conversão de moedas:
-- Conversão BTC para BRL
-    - https://economia.awesomeapi.com.br/json/last/BTC-BRL
-- Moedas para conversão
-    - https://docs.awesomeapi.com.br/api-de-moedas#moedas-com-conversao-para
-- Tradução das moedas
-    - https://economia.awesomeapi.com.br/json/available/uniq
-- Combinações possíveis
-    - https://economia.awesomeapi.com.br/json/available
-- Legendas
-    - https://docs.awesomeapi.com.br/api-de-moedas#legendas
-    
-## Bônus
-- Gerenciamento de estado
-- Cobertura de testes
-- Validação dos formulários existentes
-- Hospedagem: Netlify, Vercel, AWS Amplify, outros
-
-## Configurações do projeto
-
-É necessário possuir a biblioteca json-server instalada em sua máquina para subir a [API local](https://github.com/Oliveira-Trust/desafio-frontend/blob/master/api/data.json):
-
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-npm i -g json-server
-```
-Acesse a [documentação](https://github.com/typicode/json-server#getting-started) do json-server para entender melhor como manipular a API.
 
-## Boa sorte! 🚀
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
