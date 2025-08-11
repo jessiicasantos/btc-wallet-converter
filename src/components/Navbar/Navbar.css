@@ -13,7 +13,7 @@
 }
 
 .navbar .left {
-    @apply flex flex-1 items-center justify-center sm:items-stretch sm:justify-start;
+    @apply flex items-center justify-center sm:items-stretch sm:justify-start;
 }
 
 .navbar .logo {
@@ -21,11 +21,11 @@
 }
 
 .navbar .logo img {
-    @apply h-8.5 w-auto;
+    @apply h-7.5 sm:h-8.5 w-auto;
 }
 
 .profile {
-    @apply absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0;
+    @apply flex items-center sm:static sm:inset-auto sm:ml-6;
 }
 
 .profile-wrapper {
@@ -33,7 +33,7 @@
 }
 
 .profile .open-user-menu {
-    @apply relative flex items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 text-gray-800 font-semibold text-base;
+    @apply relative flex flex-wrap items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 text-gray-800 font-semibold text-base p-1 sm:mr-[20px];
 }
 
 .open-user-menu > span {
@@ -46,6 +46,10 @@
 
 .open-user-menu > img {
     @apply mr-2 size-8 rounded-full bg-gray-800 outline -outline-offset-1 outline-white;
+}
+
+.profile .open-user-menu > b {
+    @apply font-semibold hidden sm:block;
 }
 
 .profile .links {
