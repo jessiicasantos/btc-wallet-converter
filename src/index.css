@@ -6,44 +6,92 @@
   font-weight: 400;
 }
 
+@theme {
+  --color-gray-light: #F5F6F8;
+  --color-gray-1: #3A3A3A;
+  --color-gray-2: #707077;
+  --color-gray-4: #E5E5E5;
+  --color-gray-5: #D8D8D8;
+  --color-neutral-20: #2F3033;
+  --color-primary-blue: #006EEF;
+  --color-blue-link: #007BFF;
+  --color-light-system: #3C3C43;
+  --color-error-red: #E22849;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, small, td {
+  @apply text-gray-1;
+}
+
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  @apply text-blue-link font-medium;
 }
 a:hover {
-  color: #535bf2;
+  @apply text-blue-700;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  @apply bg-gray-100;
+  @apply bg-gray-light m-0 flex items-center min-w-[320px] min-h-[100vh];
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  @apply text-lg text-gray-1;
+}
+
+
+h2 {
+  @apply text-3xl font-bold text-gray-1;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  /* background-color: #1a1a1a; */
-  cursor: pointer;
-  transition: border-color 0.25s;
+  @apply rounded-sm p-[0.6em_1.2em] font-semibold cursor-pointer transition duration-300 ease-in-out max-w-max max-h-max w-full h-full flex items-center justify-center text-blue-link hover:outline hover:outline-blue-link;
 }
-button:hover {
-  border-color: #646cff;
+nav + div button,
+.navbar button:hover {
+  @apply border-2 border-primary-blue text-primary-blue;
+}
+nav + div button:hover {
+  @apply bg-primary-blue text-white;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  @apply focus:outline-2 focus:outline-offset-2 focus:outline-primary-blue;
+}
+
+.btn-blue {
+    @apply bg-primary-blue hover:bg-blue-700;
+}
+
+.btn-red {
+    @apply bg-error-red hover:bg-red-500;
+}
+
+.btn-blue,
+.btn-red {
+    @apply text-white focus:outline-none focus:ring-2 focus:ring-primary-blue focus:ring-offset-2;
+}
+
+form label.MuiFormLabel-root {
+  @apply text-gray-2 text-xl;
+}
+
+form > .input-fields label.MuiFormLabel-root {
+    @apply text-sm;
+}
+
+.search img {
+    @apply size-5;
+}
+
+.navbar > div,
+.container {
+    @apply mx-auto max-w-7xl px-2 sm:px-6 lg:px-8;
+}
+
+.container {
+  @apply mt-12 mb-10;
+}
+
+.container > header {
+  @apply flex flex-wrap items-center justify-between;
 }

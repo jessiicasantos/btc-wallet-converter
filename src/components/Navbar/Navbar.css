@@ -4,10 +4,6 @@
     @apply relative bg-white py-2;
 }
 
-.navbar > div {
-    @apply mx-auto max-w-7xl px-2 sm:px-6 lg:px-8;
-}
-
 .navbar > div > div {
     @apply relative flex h-16 items-center justify-between;
 }
@@ -33,7 +29,7 @@
 }
 
 .profile .open-user-menu {
-    @apply relative flex flex-wrap items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 text-gray-800 font-semibold text-base p-1 sm:mr-[20px];
+    @apply relative flex flex-wrap items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-link text-gray-1 font-semibold text-sm p-1 sm:mr-[20px];
 }
 
 .open-user-menu > span {

@@ -1,0 +1,19 @@
+.delete-modal form.MuiBox-root {
+    @apply flex flex-col items-center justify-center m-auto max-w-[450px] text-center;
+}
+
+.delete-modal h3 {
+    @apply mb-[0];
+}
+
+.delete-modal .btns {
+    @apply flex-col-reverse mt-[25px] w-full;
+}
+
+.delete-modal .btns button {
+    @apply w-full max-w-full;
+}
+
+.delete-modal .btns .cancel {
+    @apply mt-[25px];
+}

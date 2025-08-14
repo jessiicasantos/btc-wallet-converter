@@ -1,0 +1,34 @@
+@reference '../../index.css';
+
+.card-search,
+.card-search > .input-fields {
+    @apply flex items-center justify-center;
+}
+
+.card-search {
+    @apply flex-col sm:flex-row gap-3 mt-7 mb-6 p-5 bg-white;
+}
+
+.card-search > .input-fields {
+    @apply flex-wrap gap-3 w-full;
+}
+
+.card-search > .input-fields > .MuiFormControl-root {
+    @apply max-w-[340px] w-full;
+} 
+
+.card-search > .input-fields label.MuiFormLabel-root {
+    @apply top-[4px];
+}
+
+.card-search > .input-fields input {
+    @apply p-[10.5px_14px];
+}
+
+.card-search .search {
+    @apply max-h-10;
+}
+
+.search > img {
+    @apply mr-2;
+}

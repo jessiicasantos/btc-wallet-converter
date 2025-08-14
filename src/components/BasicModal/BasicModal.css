@@ -1,0 +1,43 @@
+@reference '../../index.css';
+
+.modal > .MuiBox-root {
+    @apply max-w-[80vw] xl:max-w-[42vw] w-full mx-auto p-6 xl:p-12 rounded-lg border-0;
+}
+
+.modal h3 {
+    @apply text-xl font-bold text-gray-1 mb-12;
+}
+
+.modal .input-fields > div {
+    @apply mb-2 flex flex-wrap;
+}
+
+.modal .buy-fields,
+.modal .btns {
+    @apply flex items-center;
+}
+
+.modal .btns {
+    @apply justify-end mt-[35px];
+}
+
+.modal .buy-fields > div {
+    @apply mr-[10px];
+}
+
+.modal .buy-fields > h3 {
+    @apply text-xl font-bold m-[0_0_0_10px];
+}
+
+.modal .circle {
+    @apply p-[20px] border-2 border-error-red rounded-full mb-[25px] w-fit h-fit mx-auto;
+}
+
+.modal .icon {
+    @apply size-[60px];
+}
+
+.add-modal .btns .cancel,
+.edit-modal .btns .cancel {
+    @apply mr-[20px]
+}

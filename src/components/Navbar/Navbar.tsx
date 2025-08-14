@@ -1,6 +1,6 @@
 import { Disclosure,  Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import logoOliveiraTrust from '../../assets/logo-oliveira-trust.svg';
-import ArrowRightStartRect from '../../assets/arrow-right-start-on-rectangle.svg';
+import ArrowRightStartRect from '../../assets/arrow-right-start-on-rectangle-icon.svg';
 import { Link, NavLink } from 'react-router';
 import './Navbar.css';
 

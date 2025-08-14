@@ -1,0 +1,9 @@
+@reference '../../index.css';
+
+footer {
+    @apply mx-auto mb-13;
+}
+
+footer small {
+    @apply mx-auto mb-13 text-xs font-bold text-[#BDBEBF];
+}

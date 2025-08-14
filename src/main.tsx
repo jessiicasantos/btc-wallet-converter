@@ -4,9 +4,12 @@ import './index.css'
 // import App from './App.tsx'
 import { RouterProvider } from 'react-router'
 import { router } from './router.tsx'
+import { ModalProvider } from './context/ModalContext/ModalContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+    <ModalProvider>
+      <RouterProvider router={router} />
+    </ModalProvider>
+  </StrictMode>
 )

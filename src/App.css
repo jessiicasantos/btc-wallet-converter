@@ -1,8 +1,3 @@
 #root {
-  min-height: 100vh;
-  width: 100%;
-  margin: 0 auto;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
+  @apply min-h-screen w-full m-[0_auto] text-left flex flex-col;
 }

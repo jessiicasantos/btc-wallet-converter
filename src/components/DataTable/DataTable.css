@@ -1,0 +1,76 @@
+@reference '../../index.css';
+
+.MuiTableContainer-root {
+    @apply border-b-2;
+}
+
+.MuiTableContainer-root > .MuiToolbar-root {
+    @apply p-0;
+}
+
+table .MuiTableRow-root {
+    @apply transition duration-[.3s] ease-in-out
+}
+
+table thead .MuiTableCell-root {
+    @apply font-bold border-b-3;
+}
+
+table thead .MuiTableCell-root,
+.MuiTableContainer-root {
+    @apply border-gray-5 text-gray-1;
+}
+
+#tableTitle {
+    @apply text-lg font-semibold;
+}
+
+table .edit {
+    @apply mr-2;
+}
+
+table .edit,
+table .delete {
+    @apply border-0 rounded-full inline-block;
+}
+
+table tbody button {
+    @apply p-2;
+}
+
+table tbody button img {
+    @apply size-[20px];
+}
+
+table tbody button:hover,
+table tbody button:focus {
+    @apply bg-gray-200;
+}
+
+div > .MuiPaper-root {
+    @apply pt-[25px] pb-[16px] px-[20px] shadow-xl;
+}
+
+.MuiPaper-root hr {
+    @apply p-0 mt-[35px] mb-[21px] h-[2px] flex items-center justify-center bg-[#F1F1F2] border-0;
+}
+
+table .MuiTableCell-root {
+    @apply p-[10px] text-gray-1;
+}
+
+.MuiPagination-root .MuiButtonBase-root {
+    @apply rounded-sm size-fit min-w-[24px] min-h-[28px] text-sm font-semibold text-gray-1;
+}
+
+.MuiPagination-root .MuiButtonBase-root:hover {
+    @apply bg-blue-link text-white;
+}
+
+.rows-wrapper {
+    @apply flex justify-between items-center px-5 text-gray-500;
+}
+
+.rows-wrapper h6 {
+    @apply text-sm;
+}
