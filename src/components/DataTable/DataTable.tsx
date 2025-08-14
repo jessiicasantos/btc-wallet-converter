@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,23 +9,35 @@ import { Pagination, styled, Toolbar, Typography } from '@mui/material';
 import PencilIcon from '../../assets/pencil-icon.svg';
 import TrashIcon from '../../assets/trash-icon.svg';
 import './DataTable.css';
+import axios from 'axios';
 import { useModal } from '../../context/ModalContext/ModalContext';
 import EditModal from '../EditModal/EditModal';
 import DeleteModal from '../DeleteModal/DeleteModal';
 import type { Column, Data } from '../../types/DataTable';
-
-function createData(
-  name: string,
-  code: string,
-  population: number,
-  size: number,
-  actions: any
-): Data {
-//   const density = population / size;
-  return { name, code, population, size, actions };
-}
+import { useEffect, useState } from 'react';
 
 export default function DataTable() {
+  const [ data, setData ] = useState<Data[]>([]);
+
+  const fetchData = async () => {
+    try {
+      let response = await axios.get(
+        'http://localhost:3000/users'
+      );
+      
+      let dataResponse = await response.data;
+      console.log('dataResponse: ', dataResponse);
+
+      setData(dataResponse);
+    } catch (error) {
+      console.error('Errrroooo!!!', error);
+    }
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, []);
+
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(even)': {
       backgroundColor: theme.palette.action.hover,
@@ -48,21 +59,21 @@ export default function DataTable() {
   const { modal, openModal } = useModal();
 
   const columns: readonly Column[] = [
-    { id: 'name', label: 'Name', minWidth: 170 },
-    { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
+    { id: 'nome', label: 'Nome', minWidth: 170 },
+    { id: 'sobrenome', label: 'Sobrenome', minWidth: 100 },
     {
-      id: 'population',
-      label: 'Population',
+      id: 'email',
+      label: 'Email',
       minWidth: 170,
-      align: 'right',
-      format: (value: number) => value.toLocaleString('en-US'),
+      align: 'left',
+      // format: (value: number) => value.toLocaleString('en-US'),
     },
     {
-      id: 'size',
-      label: 'Size\u00a0(km\u00b2)',
+      id: 'valor_carteira',
+      label: 'Bitcoin',
       minWidth: 170,
-      align: 'right',
-      format: (value: number) => value.toLocaleString('en-US'),
+      align: 'left',
+      // format: (value: number) => value.toLocaleString('en-US'),
     },
     {
       id: 'actions',
@@ -83,35 +94,17 @@ export default function DataTable() {
         </button>
     </>
   );
-
-  const rows = [
-    createData('India', 'IN', 1324171354, 3287263, actions),
-    createData('China', 'CN', 1403500365, 9596961, actions),
-    createData('Italy', 'IT', 60483973, 301340, actions),
-    createData('United States', 'US', 327167434, 9833520, actions),
-    createData('Canada', 'CA', 37602103, 9984670, actions),
-    createData('Australia', 'AU', 25475400, 7692024, actions),
-    createData('Germany', 'DE', 83019200, 357578, actions),
-    createData('Ireland', 'IE', 4857000, 70273, actions),
-    createData('Mexico', 'MX', 126577691, 1972550, actions),
-    createData('Japan', 'JP', 126317000, 377973, actions),
-    createData('France', 'FR', 67022000, 640679, actions),
-    createData('United Kingdom', 'GB', 67545757, 242495, actions),
-    createData('Russia', 'RU', 146793744, 17098246, actions),
-    createData('Nigeria', 'NG', 200962417, 923768, actions),
-    createData('Brazil', 'BR', 210147125, 8515767, actions),
-  ];
-
-  const [pageSize, setPageSize] = React.useState(10);
-  const [page, setPage] = React.useState(1);
+  
+  const [pageSize, setPageSize] = useState(10);
+  const [page, setPage] = useState(1);
 
   const handlePage = (newPage: any) => {
     setPage(newPage);
   }
 
-  const totalPages = Math.ceil(rows.length / pageSize);
+  const totalPages = Math.ceil(data?.length / pageSize);
 
-  const pageContent = rows.slice((page - 1) * pageSize, page * pageSize);
+  const pageContent = data?.slice((page - 1) * pageSize, page * pageSize);
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }} className="container">
@@ -123,11 +116,11 @@ export default function DataTable() {
                 id="tableTitle"
                 component="div"
             >
-            Carteiras
+              Carteiras
             </Typography>
 
             <button className="export export-csv">
-                Exportar CSV
+              Exportar CSV
             </button>
         </Toolbar>
         <Table stickyHeader aria-label="sticky table">
@@ -147,7 +140,7 @@ export default function DataTable() {
           <TableBody>
             {pageContent.map((row: any) => (
                 <StyledTableRow 
-                    hover role="checkbox" tabIndex={-1} key={row.code}
+                    hover role="checkbox" tabIndex={-1} key={row.id}
                 >
                     {columns.map((column) => {
                       const value = row[column.id];
@@ -155,30 +148,13 @@ export default function DataTable() {
                         <TableCell key={column.id} align={column.align}>
                           {column.format && typeof value === 'number'
                             ? column.format(value)
-                            : value}
+                            : value }
+                            {column.id === 'actions' && actions}
                         </TableCell>
                       );
                     })}
                 </StyledTableRow>
             ))}
-            {/* {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                  <StyledTableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
-                        </TableCell>
-                      );
-                    })}
-                  </StyledTableRow>
-                );
-              })} */}
           </TableBody>
         </Table>
       </TableContainer>
@@ -186,7 +162,7 @@ export default function DataTable() {
       <hr />
       
       <div className="rows-wrapper">
-        <h6>{rows.length} registro(s)</h6>
+        <h6>{data.length} registro(s)</h6>
 
         <Pagination 
             color="primary"
