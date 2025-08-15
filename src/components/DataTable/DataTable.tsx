@@ -12,7 +12,7 @@ import './DataTable.css';
 import { useModal } from '../../context/ModalContext/ModalContext';
 import EditModal from '../EditModal/EditModal';
 import DeleteModal from '../DeleteModal/DeleteModal';
-import type { Column, Data } from '../../types/DataTable';
+import type { Column } from '../../types/DataTable';
 import { useEffect, useState } from 'react';
 import { useWallet } from '../../context/WalletContext/WalletContext';
 
@@ -152,7 +152,7 @@ export default function DataTable() {
         <Pagination 
           color="primary"
           count={totalPages}
-          onChange={( value: any ) => handlePage(value)}
+          onChange={( event: any, value: any ) => handlePage(value)}
           page={page}
           size="large"
           className="flex justify-end"

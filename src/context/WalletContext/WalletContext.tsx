@@ -27,6 +27,7 @@ const WalletContext = createContext<WalletContextProps | undefined>(undefined);
 
 export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [wallets, setWallets] = useState<Wallet[]>([]);
+  
   const getWallets = async () => {
     try {
       let response = await axios.get(
