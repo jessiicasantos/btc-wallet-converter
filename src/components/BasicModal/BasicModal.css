@@ -8,7 +8,8 @@
     @apply text-xl font-bold text-gray-1 mb-12;
 }
 
-.modal .input-fields > div {
+.modal .input-fields > div,
+.modal .input-fields .buy-fields {
     @apply mb-2 flex flex-wrap;
 }
 
@@ -19,6 +20,10 @@
 
 .modal .btns {
     @apply justify-end mt-[35px];
+}
+
+.modal .input-fields .buy-fields input {
+    @apply max-w-[222px] w-full;
 }
 
 .modal .buy-fields > div {
