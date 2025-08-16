@@ -79,6 +79,10 @@ form > .input-fields label.MuiFormLabel-root {
     @apply text-sm;
 }
 
+form .buy-fields > p.MuiFormHelperText-root {
+  @apply absolute bottom-[45px];
+}
+
 .search img {
     @apply size-5;
 }
@@ -94,4 +98,8 @@ form > .input-fields label.MuiFormLabel-root {
 
 .container > header {
   @apply flex flex-wrap items-center justify-between;
+}
+
+button:disabled {
+  @apply opacity-40 cursor-not-allowed;
 }

@@ -10,12 +10,20 @@
 
 .modal .input-fields > div,
 .modal .input-fields .buy-fields {
-    @apply mb-2 flex flex-wrap;
+    @apply mb-2 flex;
+}
+
+.modal .buy-fields {
+    @apply flex-col sm:flex-row;
 }
 
 .modal .buy-fields,
 .modal .btns {
     @apply flex items-center;
+}
+
+.modal .input-fields > div:not(.buy-fields) {
+    @apply flex-wrap;
 }
 
 .modal .btns {
@@ -27,7 +35,7 @@
 }
 
 .modal .buy-fields > div {
-    @apply mr-[10px];
+    @apply w-full m-0 sm:mr-[10px] sm:w-fit;
 }
 
 .modal .buy-fields > h3 {

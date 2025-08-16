@@ -3,6 +3,7 @@ import MagnyfyinGlassIcon from '../../assets/magnifying-glass-icon.svg';
 import './CardSearch.css';
 
 const CardSearch = () => {
+
     return (
         <Box
             component="form"

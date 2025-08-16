@@ -62,6 +62,14 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     setWallets(newWallets);
   }
 
+    const filterWallet = (walletId: string) => {
+    const updatedWallet = wallets.findIndex(w => w.id == walletId);
+    let newWallets = [...wallets];
+    newWallets.splice(updatedWallet, 1);
+
+    setWallets(newWallets);
+  }
+
   return (
     <WalletContext.Provider value={{ wallets, getWallets, addWallet, editWallet, deleteWallet }}>
       {children}
