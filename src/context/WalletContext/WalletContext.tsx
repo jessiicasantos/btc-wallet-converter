@@ -4,7 +4,7 @@ import { createContext, useContext, useState } from 'react';
 type WalletType = 'add' | 'edit' | 'delete' | null;
 
 interface Wallet {
-  id?: string;
+  id: string;
   nome: string;
   sobrenome: string;
   email: string;
@@ -12,6 +12,7 @@ interface Wallet {
   data_nascimento: Date;
   data_abertura: Date;
   valor_carteira: number;
+  valor_btc: number;
   endereco_carteira: string;
 }
 
@@ -62,14 +63,14 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     setWallets(newWallets);
   }
 
-    const filterWallet = (walletId: string) => {
+  const filterWallet = (walletId: string) => {
     const updatedWallet = wallets.findIndex(w => w.id == walletId);
     let newWallets = [...wallets];
     newWallets.splice(updatedWallet, 1);
 
     setWallets(newWallets);
   }
-
+  
   return (
     <WalletContext.Provider value={{ wallets, getWallets, addWallet, editWallet, deleteWallet }}>
       {children}

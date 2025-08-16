@@ -8,9 +8,9 @@ import { useForm } from "react-hook-form";
 import { useAlert } from "../../context/AlertContext/AlertContext";
 import { useWallet } from "../../context/WalletContext/WalletContext";
 import { useState } from "react";
+import { convertToBTC } from "../../utils/conversion";
 
 const AddModal = () => {
-  
   const { showAlert } = useAlert();
   const { modal, closeModal } = useModal();
   const { addWallet } = useWallet();
@@ -46,18 +46,28 @@ const AddModal = () => {
     console.log('Dados validados: ', data);
     data.id = Date.now().toString();
 
+    const valorBrl = parseFloat(data.valor_carteira);
+    const valorBtc = await convertToBTC(valorBrl);
+
+    const newWallet = {
+      ...data,
+      id: Date.now().toString(),
+      valor_carteira: valorBrl,
+      valor_btc: valorBtc
+    };
+
     try {
       let response = await axios.post(
         'http://localhost:3000/users/',
-        data
+        newWallet
       );
 
       if(response.status === 201) {
         console.log('Carteira adicionada com sucesso!');
 
-        console.log('data: ', data);
+        console.log('newWallet: ', newWallet);
         
-        addWallet(data);
+        addWallet(newWallet);
         showAlert('Carteira adicionada com sucesso!', 'success');
         closeModal();
       }

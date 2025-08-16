@@ -53,21 +53,18 @@ export default function DataTable() {
       label: 'Email',
       minWidth: 170,
       align: 'left',
-      // format: (value: number) => value.toLocaleString('en-US'),
     },
     {
-      id: 'valor_carteira',
+      id: 'valor_btc',
       label: 'Bitcoin',
       minWidth: 170,
       align: 'left',
-      // format: (value: number) => value.toLocaleString('en-US'),
     },
     {
       id: 'actions',
       label: '',
       minWidth: 170,
       align: 'right',
-      format: (value: number) => value.toFixed(2),
     },
   ];
   
