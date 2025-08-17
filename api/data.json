@@ -680,29 +680,12 @@
       "valor_brl": 554
     },
     {
-      "valor_carteira": 11000,
-      "email": "rafa@gmail.com",
-      "sobrenome": "Santos",
-      "nome": "Rafaela",
-      "id": "1755399470202",
-      "valor_btc": 0.0171993,
-      "valor_brl": 11000
-    },
-    {
       "valor_carteira": 55000,
       "email": "rai@outlook.com.br",
       "sobrenome": "Lopes",
       "nome": "Raiane",
       "id": "1755404736334",
       "valor_btc": 0.08599649
-    },
-    {
-      "valor_carteira": 32,
-      "email": "gonca@outlook.com",
-      "sobrenome": "Gonçalves",
-      "nome": "Amanda",
-      "id": "1755451690611",
-      "valor_btc": 0.00004999
     },
     {
       "valor_carteira": 56000,

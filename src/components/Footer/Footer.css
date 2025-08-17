@@ -1,7 +1,7 @@
 @reference '../../index.css';
 
 footer {
-    @apply mx-auto mb-13;
+    @apply mx-auto mb-13  mt-auto;
 }
 
 footer small {
