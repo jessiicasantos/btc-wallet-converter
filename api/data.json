@@ -671,14 +671,6 @@
       "valor_brl": 124
     },
     {
-      "valor_carteira": 1556,
-      "email": "nice@gmail.com",
-      "sobrenome": "Nice",
-      "nome": "Isac",
-      "id": "1755383088224",
-      "valor_btc": 0.00243787
-    },
-    {
       "valor_carteira": 554,
       "email": "nev@yahoo.com",
       "sobrenome": "Neves",
@@ -688,12 +680,13 @@
       "valor_brl": 554
     },
     {
-      "valor_carteira": 234.23,
+      "valor_carteira": 11000,
       "email": "rafa@gmail.com",
       "sobrenome": "Santos",
       "nome": "Rafaela",
       "id": "1755399470202",
-      "valor_btc": 0.00036698
+      "valor_btc": 0.0171993,
+      "valor_brl": 11000
     }
   ]
 }

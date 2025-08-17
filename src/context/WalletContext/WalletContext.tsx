@@ -32,11 +32,11 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     }
   }
 
-  const addWallet = (walletData: Wallet) => {
+  const addWallet = async (walletData: Wallet): Promise<void> => {
     setWallets([...wallets, walletData]);
   }
 
-  const editWallet = (walletData: Wallet) => {
+  const editWallet = async (walletData: Wallet): Promise<void> => {
     const updatedWallet = wallets.findIndex(w => w.id == walletData.id);
     let newWallets = [...wallets];
 
@@ -44,7 +44,7 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     setWallets(newWallets);
   }
 
-  const deleteWallet = (walletId: string) => {
+  const deleteWallet = async (walletId: string): Promise<void> => {
     const updatedWallet = wallets.findIndex(w => w.id == walletId);
     let newWallets = [...wallets];
     newWallets.splice(updatedWallet, 1);

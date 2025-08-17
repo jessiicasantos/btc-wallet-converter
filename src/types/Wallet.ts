@@ -15,11 +15,11 @@ export interface Wallet {
 
 export interface WalletContextProps {
   wallets: Wallet[];
-  getWallets: any;
+  getWallets: (filters?: any, page?: number, pageSize?: number) => Promise<void>;
   setWallets: (wallets: Wallet[]) => void;
-  addWallet: any;
-  editWallet: any;
-  deleteWallet: any;
+  addWallet: (wallet: Wallet) => Promise<void>;
+  editWallet: (wallet: Wallet) => Promise<void>;
+  deleteWallet: (id: string) => Promise<void>;
   page: any;
   setPage: any;
   pageSize: number;

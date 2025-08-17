@@ -26,26 +26,26 @@ const CardSearch = () => {
     getWallets(activeFilters, 1, pageSize);
   };
 
-    return (
-      <Box
-        component="form"
-        onSubmit={handleSubmit(onSubmit)}
-        noValidate
-        autoComplete="off"
-        className="card-search"
-      >
-          <div className="input-fields">
-            <TextField {...register("nome")} label="Nome" type="search" size="small" fullWidth error={!!errors.nome} helperText={errors.nome?.message} />
-            <TextField {...register("sobrenome")} label="Sobrenome"  type="search" size="small" fullWidth error={!!errors.sobrenome} helperText={errors.sobrenome?.message} />
-            <TextField {...register("email")} label="Email" type="search" size="small" fullWidth error={!!errors.email} helperText={errors.email?.message} />
-          </div>
+  return (
+    <Box
+      component="form"
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+      autoComplete="off"
+      className="card-search"
+    >
+      <div className="input-fields">
+        <TextField {...register("nome")} label="Nome" type="search" size="small" fullWidth error={!!errors.nome} helperText={errors.nome?.message} />
+        <TextField {...register("sobrenome")} label="Sobrenome"  type="search" size="small" fullWidth error={!!errors.sobrenome} helperText={errors.sobrenome?.message} />
+        <TextField {...register("email")} label="Email" type="search" size="small" fullWidth error={!!errors.email} helperText={errors.email?.message} />
+      </div>
 
-          <button className="search" type="submit">
-            <img src={MagnyfyinGlassIcon} alt="Search Icon" />
-            Buscar
-          </button>
-      </Box>
-    )
+      <button className="search" type="submit">
+        <img src={MagnyfyinGlassIcon} alt="Search Icon" />
+        Buscar
+      </button>
+    </Box>
+  )
 }
 
 export default CardSearch;

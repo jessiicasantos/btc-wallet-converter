@@ -1,9 +1,11 @@
+import type { Wallet } from "./Wallet";
+
 export interface Column {
-  id: 'nome' | 'sobrenome' | 'email' | 'valor_carteira' | 'valor_btc' | 'actions';
+  id: keyof Wallet | 'actions';
   label: string;
   minWidth?: number;
   align?: 'left' | 'center' | 'right';
-  format?: (value: number) => string;
+  format?: (value: any) => string;
 }
 
 export interface Data {

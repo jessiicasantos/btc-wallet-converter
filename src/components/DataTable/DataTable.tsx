@@ -15,6 +15,7 @@ import DeleteModal from '../DeleteModal/DeleteModal';
 import type { Column } from '../../types/DataTable';
 import { useEffect } from 'react';
 import { useWallet } from '../../context/WalletContext/WalletContext';
+import BtnExport from '../BtnExport/BtnExport';
 
 export default function DataTable() {
   const { wallets, page, setPage, pageSize, getWallets, totalCount } = useWallet();
@@ -101,9 +102,9 @@ export default function DataTable() {
               Limpar filtros
             </button>
 
-            <button className="export export-csv">
+            <BtnExport wallets={wallets} columns={[...columns]} className="export export-csv">
               Exportar CSV
-            </button>
+            </BtnExport>
           </div>
         </Toolbar>
         <Table stickyHeader aria-label="sticky table">
