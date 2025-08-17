@@ -130,7 +130,9 @@ export default function DataTable() {
                             </button>
                           </>
                         ) : (
-                          column.format && typeof value === 'number' ? column.format(value) : value
+                          column.format && typeof value === 'number' 
+                          ? column.format(value) 
+                          : value
                         )}
                       </TableCell>
                     );
