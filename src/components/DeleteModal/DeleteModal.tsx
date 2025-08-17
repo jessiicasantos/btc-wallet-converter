@@ -1,11 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import { useModal } from "../../context/ModalContext/ModalContext";
 import BasicModal from "../BasicModal/BasicModal";
-import TrashIcon from '../../assets/trash-icon.svg';
+// import TrashIcon from '../../assets/trash-icon.svg';
 import './DeleteModal.css';
 import { useWallet } from "../../context/WalletContext/WalletContext";
 import axios from "axios";
 import { useAlert } from "../../context/AlertContext/AlertContext";
+import TrashIcon from "../../assets/trash-icon";
 
 const DeleteModal = () => {
   const { showAlert } = useAlert();
@@ -40,7 +41,7 @@ const DeleteModal = () => {
         className=""
       >
         <div className="circle">
-          <img src={TrashIcon} alt="Ícone de deletar" className="icon" />
+          <TrashIcon stroke="#E22849" className="icon" />
         </div>
         <Typography variant="h3">
           Excluir Carteira

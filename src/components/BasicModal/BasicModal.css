@@ -5,7 +5,11 @@
 }
 
 .modal h3 {
-    @apply text-xl font-bold text-gray-1 mb-12;
+    @apply relative text-xl font-bold text-gray-1 mb-12;
+}
+
+.modal h3::after {
+    @apply content-[''] absolute block border-b-2 border-gray-3 w-full top-[45px];
 }
 
 .modal .input-fields > div,
@@ -43,7 +47,12 @@
 }
 
 .modal .circle {
-    @apply p-[20px] border-2 border-error-red rounded-full mb-[25px] w-fit h-fit mx-auto;
+    @apply p-[10px_20px] border-2 border-error-red rounded-[100%] mb-[25px] w-fit h-fit mx-auto;
+}
+
+.modal .circle > svg,
+.modal .circle > img {
+    @apply w-[35px] h-[45px];
 }
 
 .modal .icon {

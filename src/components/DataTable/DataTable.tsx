@@ -7,7 +7,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { Pagination, styled, Toolbar, Typography } from '@mui/material';
 import PencilIcon from '../../assets/pencil-icon.svg';
-import TrashIcon from '../../assets/trash-icon.svg';
 import './DataTable.css';
 import { useModal } from '../../context/ModalContext/ModalContext';
 import EditModal from '../EditModal/EditModal';
@@ -16,6 +15,7 @@ import type { Column } from '../../types/DataTable';
 import { useEffect } from 'react';
 import { useWallet } from '../../context/WalletContext/WalletContext';
 import BtnExport from '../BtnExport/BtnExport';
+import TrashIcon from '../../assets/trash-icon';
 
 export default function DataTable() {
   const { wallets, page, setPage, pageSize, getWallets, totalCount } = useWallet();
@@ -144,7 +144,7 @@ export default function DataTable() {
                                 <img src={PencilIcon} alt="Ícone de Edição" />
                               </button>
                               <button className="delete" onClick={() => openModal('delete', row)}>
-                                <img src={TrashIcon} alt="Ícone de Remover" />
+                                <TrashIcon stroke="#3a3a3a" className="size-5.5" />
                               </button>
                             </>
                           ) : (

@@ -52,7 +52,7 @@ div > .MuiPaper-root {
 }
 
 .MuiPaper-root hr {
-    @apply p-0 mt-[35px] mb-[21px] h-[2px] flex items-center justify-center bg-[#F1F1F2] border-0;
+    @apply p-0 mt-[35px] mb-[21px] h-[2px] flex items-center justify-center bg-gray-3 border-0;
 }
 
 table .MuiTableCell-root {
