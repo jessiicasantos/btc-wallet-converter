@@ -9,7 +9,7 @@
 }
 
 table .MuiTableRow-root {
-    @apply transition duration-[.3s] ease-in-out
+    @apply transition duration-[.3s] ease-in-out;
 }
 
 table thead .MuiTableCell-root {
@@ -73,4 +73,20 @@ table .MuiTableCell-root {
 
 .rows-wrapper h6 {
     @apply text-sm;
+}
+
+.table-empty-message {
+    @apply font-bold text-gray-500 p-[20px];
+}
+
+.table-options .btns {
+    @apply flex flex-col sm:flex-row;
+}
+
+.table-options .btns button {
+    @apply block w-max;
+}
+
+.clear-filters {
+    @apply mr-4 mb-[5px] sm:mb-0;
 }

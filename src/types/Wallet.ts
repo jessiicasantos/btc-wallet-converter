@@ -20,4 +20,8 @@ export interface WalletContextProps {
   addWallet: any;
   editWallet: any;
   deleteWallet: any;
+  page: any;
+  setPage: any;
+  pageSize: number;
+  totalCount: number;
 }

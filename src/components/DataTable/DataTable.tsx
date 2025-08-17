@@ -13,11 +13,11 @@ import { useModal } from '../../context/ModalContext/ModalContext';
 import EditModal from '../EditModal/EditModal';
 import DeleteModal from '../DeleteModal/DeleteModal';
 import type { Column } from '../../types/DataTable';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useWallet } from '../../context/WalletContext/WalletContext';
 
 export default function DataTable() {
-  const { wallets, getWallets } = useWallet();
+  const { wallets, page, setPage, pageSize, getWallets, totalCount } = useWallet();
 
   useEffect(() => {
     if(wallets.length < 1) {
@@ -67,22 +67,26 @@ export default function DataTable() {
       align: 'right',
     },
   ];
-  
-  const [pageSize, setPageSize] = useState(10);
-  const [page, setPage] = useState(1);
 
-  const handlePage = (newPage: any) => {
+  const handlePage = (newPage: number) => {
     setPage(newPage);
+    getWallets({}, newPage, pageSize);
   }
 
-  const totalPages = Math.ceil((wallets.length) / pageSize);
+  const handleClear = () => {
+    setPage(1);
+    getWallets({}, 1, pageSize);
+  };
+
+
+  const totalPages = Math.ceil(totalCount / pageSize);
 
   const pageContent = wallets.slice((page - 1) * pageSize, page * pageSize);
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }} className="container">
       <TableContainer sx={{ maxHeight: '70vh' }}>
-        <Toolbar>
+        <Toolbar className="table-options">
           <Typography
               sx={{ flex: '1 1 100%' }}
               variant="h6"
@@ -92,9 +96,15 @@ export default function DataTable() {
             Carteiras
           </Typography>
 
-          <button className="export export-csv">
-            Exportar CSV
-          </button>
+          <div className="btns">
+            <button className="clear-filters" type="button" onClick={() => handleClear()}>
+              Limpar filtros
+            </button>
+
+            <button className="export export-csv">
+              Exportar CSV
+            </button>
+          </div>
         </Toolbar>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -111,34 +121,42 @@ export default function DataTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {pageContent.map((row: any) => (
-                <StyledTableRow 
-                    hover role="checkbox" tabIndex={-1} key={row.id}
-                >
-                  {columns.map((column) => {
-                    const value = row[column.id];
-
-                    return (
-                      <TableCell key={column.id} align={column.align}>
-                        {column.id === 'actions' ? (
-                          <>
-                            <button className="edit" onClick={() => openModal('edit', row)}>
-                              <img src={PencilIcon} alt="Ícone de Edição" />
-                            </button>
-                            <button className="delete" onClick={() => openModal('delete', row)}>
-                              <img src={TrashIcon} alt="Ícone de Remover" />
-                            </button>
-                          </>
-                        ) : (
-                          column.format && typeof value === 'number' 
-                          ? column.format(value) 
-                          : value
-                        )}
-                      </TableCell>
-                    );
-                  })}
+            {pageContent.length === 0 ? (
+              <StyledTableRow>
+                <TableCell colSpan={columns.length} align="center" className="table-empty-message">
+                  Carteira não encontrada.
+                </TableCell>
               </StyledTableRow>
-            ))}
+            ) :
+              (pageContent.map((row: any) => (
+                  <StyledTableRow 
+                      hover role="checkbox" tabIndex={-1} key={row.id}
+                  >
+                    {columns.map((column) => {
+                      const value = row[column.id];
+
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.id === 'actions' ? (
+                            <>
+                              <button className="edit" onClick={() => openModal('edit', row)}>
+                                <img src={PencilIcon} alt="Ícone de Edição" />
+                              </button>
+                              <button className="delete" onClick={() => openModal('delete', row)}>
+                                <img src={TrashIcon} alt="Ícone de Remover" />
+                              </button>
+                            </>
+                          ) : (
+                            column.format && typeof value === 'number' 
+                            ? column.format(value) 
+                            : value
+                          )}
+                        </TableCell>
+                      );
+                    })}
+                </StyledTableRow>
+              )))
+            }
           </TableBody>
         </Table>
       </TableContainer>

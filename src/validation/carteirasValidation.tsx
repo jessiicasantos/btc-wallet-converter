@@ -7,8 +7,10 @@ export const carteirasValidationSchema = Yup.object().shape({
   valor_carteira: Yup.number().positive('O valor precisa ser positivo').typeError('Insira o valor da compra').max(100000, 'Valor máximo de compra de bitcoin excedido!').required("O valor de compra é obrigatório")
 })
 
+const strType = Yup.string();
+
 export const searchValidationSchema = Yup.object().shape({
-  nome: Yup.string().optional(),
-  sobrenome: Yup.string().optional(),
-  email: Yup.string().email('E-mail inválido').optional()
+  nome: strType.optional(),
+  sobrenome: strType.optional(),
+  email: strType.optional()
 })

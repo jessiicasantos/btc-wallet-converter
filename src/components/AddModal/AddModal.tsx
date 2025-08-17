@@ -43,7 +43,6 @@ const AddModal = () => {
   }
   
   const onSubmit = async (data: any) => {
-    console.log('Dados validados: ', data);
     data.id = Date.now().toString();
 
     const valorBrl = parseFloat(data.valor_carteira);
