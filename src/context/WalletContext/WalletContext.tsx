@@ -16,13 +16,12 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         Object.entries(filters).map(([key, value]) => [`${key}_like`, value])
       );
 
-      const params = filters && Object.keys(filters).length > 0 ? {...likeFilters, _page: page, _limit: limit} : {};
+      const params = filters && Object.keys(filters).length > 0 ? {...likeFilters, _page: page, _limit: limit, _sort: 'id', _order: 'desc'} : {};
 
       let response = await axios.get(
         'http://localhost:3000/users', {
           params
-        });
-      
+        }); 
       let dataResponse = response.data;
 
       setWallets(dataResponse);
@@ -33,15 +32,13 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }
 
   const addWallet = async (walletData: Wallet): Promise<void> => {
-    setWallets([...wallets, walletData]);
+    setWallets([walletData, ...wallets]);
   }
 
   const editWallet = async (walletData: Wallet): Promise<void> => {
-    const updatedWallet = wallets.findIndex(w => w.id == walletData.id);
-    let newWallets = [...wallets];
-
-    newWallets[updatedWallet] = walletData;
-    setWallets(newWallets);
+    const filteredWallets = wallets.filter(w => w.id !== walletData.id);
+    setWallets([walletData, ...filteredWallets]);
+    setPage(1);
   }
 
   const deleteWallet = async (walletId: string): Promise<void> => {
@@ -49,6 +46,7 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     let newWallets = [...wallets];
     newWallets.splice(updatedWallet, 1);
 
+    setPage(1);
     setWallets(newWallets);
   }
   

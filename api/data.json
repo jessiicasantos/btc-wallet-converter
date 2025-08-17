@@ -4,7 +4,7 @@
       "id": "1",
       "nome": "Doroteya",
       "sobrenome": "Powder",
-      "email": "dpowder0@wisc.edu",
+      "email": "dpowder@wisc.edu",
       "endereco": "6906 Merchant Center",
       "data_nascimento": "1996-01-03T14:28:31Z",
       "data_abertura": "2018-05-16T15:50:23Z",
@@ -644,13 +644,13 @@
       "valor_brl": 222
     },
     {
-      "valor_carteira": 1233,
+      "valor_carteira": 356,
       "email": "car@sd.ds",
       "sobrenome": "Meiriles",
       "nome": "Carla",
       "id": "1755379703795",
-      "valor_btc": 0.00192903,
-      "valor_brl": 1233
+      "valor_btc": 0.00055616,
+      "valor_brl": 356
     },
     {
       "valor_carteira": 35,
@@ -687,6 +687,55 @@
       "id": "1755399470202",
       "valor_btc": 0.0171993,
       "valor_brl": 11000
+    },
+    {
+      "valor_carteira": 55000,
+      "email": "rai@outlook.com.br",
+      "sobrenome": "Lopes",
+      "nome": "Raiane",
+      "id": "1755404736334",
+      "valor_btc": 0.08599649
+    },
+    {
+      "valor_carteira": 32,
+      "email": "gonca@outlook.com",
+      "sobrenome": "Gonçalves",
+      "nome": "Amanda",
+      "id": "1755451690611",
+      "valor_btc": 0.00004999
+    },
+    {
+      "valor_carteira": 56000,
+      "email": "rafaela@yahoo.com.br",
+      "sobrenome": "Gonçalves",
+      "nome": "Rafaela",
+      "id": "1755452817281",
+      "valor_btc": 0.08735518
+    },
+    {
+      "valor_carteira": 99987,
+      "email": "riba@gmail.com",
+      "sobrenome": "Ribeiro",
+      "nome": "Júlia",
+      "id": "1755452938656",
+      "valor_btc": 0.15591664
+    },
+    {
+      "valor_carteira": 234,
+      "email": "sampa@yahoo.com",
+      "sobrenome": "Sampaio",
+      "nome": "Gabriela",
+      "id": "1755453154995",
+      "valor_btc": 0.00036542,
+      "valor_brl": 234
+    },
+    {
+      "valor_carteira": 985.213,
+      "email": "nasci@gmail.com",
+      "sobrenome": "Nascimento",
+      "nome": "Tiago",
+      "id": "1755453249472",
+      "valor_btc": 0.00153854
     }
   ]
 }
