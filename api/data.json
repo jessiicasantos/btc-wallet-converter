@@ -625,12 +625,12 @@
       "valor_btc": 0.00386344
     },
     {
-      "valor_carteira": 100,
+      "valor_carteira": 10234,
       "email": "rafaoliveira@gmail.com",
       "sobrenome": "Oliveira",
       "nome": "Rafael",
       "id": 1755546248059,
-      "valor_btc": 0.00015785
+      "valor_btc": 0.01609978
     },
     {
       "valor_carteira": 33,
@@ -638,7 +638,7 @@
       "sobrenome": "Neves",
       "nome": "Ana",
       "id": 1755546285195,
-      "valor_btc": 0.00005204
+      "valor_btc": 0.00005191
     },
     {
       "valor_carteira": 250,

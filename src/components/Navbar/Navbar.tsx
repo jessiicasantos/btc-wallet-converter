@@ -34,20 +34,6 @@ const Navbar = () => {
                 />
                 <b>Otávio Oliveira</b>
               </MenuButton>
-
-              <MenuItems
-                transition
-                className="links"
-              >
-                <MenuItem>
-                  <Link
-                    to="/profile"
-                    className=""
-                  >
-                    Meu Perfil
-                  </Link>
-                </MenuItem>
-              </MenuItems>
             </Menu>
 
             <NavLink

@@ -56,7 +56,7 @@ div > .MuiPaper-root {
 }
 
 table .MuiTableCell-root {
-    @apply p-[10px] text-gray-1;
+    @apply p-[8px_10px] text-gray-1;
 }
 
 .MuiPagination-root .MuiButtonBase-root {
@@ -68,11 +68,19 @@ table .MuiTableCell-root {
 }
 
 .rows-wrapper {
-    @apply flex justify-between items-center px-5 text-gray-500;
+    @apply flex justify-between items-center text-gray-500;
 }
 
 .rows-wrapper h6 {
     @apply text-sm;
+}
+
+.rows-wrapper .MuiPagination-root {
+    @apply ml-30;
+}
+
+.rows-wrapper > .MuiButtonBase-root {
+    @apply bg-[#1565c0];
 }
 
 .table-empty-message {
@@ -80,13 +88,28 @@ table .MuiTableCell-root {
 }
 
 .table-options .btns {
-    @apply flex flex-col sm:flex-row;
+    @apply flex flex-col justify-end items-end sm:flex-row;
 }
 
 .table-options .btns button {
-    @apply block w-max;
+    @apply block w-max h-max;
 }
 
-.clear-filters {
-    @apply mr-4 mb-[5px] sm:mb-0;
+table > .MuiTableCell-root {
+    height: 10px;
+    padding: 0 14px !important;
+}
+
+
+table > .MuiTableCell-root {
+    height: 10px;
+    padding: 0 14px !important;
+}
+
+.btns > button.clear-filters {
+    @apply mr-4 mb-[5px] sm:mb-0 border-error-red px-2 stroke-error-red;
+}
+
+.btns > button.clear-filters:hover {
+    @apply bg-error-red stroke-white;
 }

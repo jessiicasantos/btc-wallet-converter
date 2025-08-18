@@ -84,8 +84,13 @@ form .buy-fields > p.MuiFormHelperText-root {
   @apply absolute bottom-[45px];
 }
 
-.search img {
-    @apply size-5;
+.search img,
+.search svg {
+    @apply size-5 mr-2;
+}
+
+.search:hover svg {
+    @apply stroke-white;
 }
 
 .navbar > div,
@@ -98,7 +103,7 @@ form .buy-fields > p.MuiFormHelperText-root {
 }
 
 .container > header {
-  @apply flex flex-wrap items-center justify-between;
+  @apply flex items-center justify-between gap-5 flex-col sm:flex-row;
 }
 
 button:disabled {

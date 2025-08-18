@@ -16,6 +16,7 @@ import { useEffect } from 'react';
 import { useWallet } from '../../context/WalletContext/WalletContext';
 import BtnExport from '../BtnExport/BtnExport';
 import TrashIcon from '../../assets/trash-icon';
+import XMarkIcon from '../../assets/x-mark-icon';
 
 export default function DataTable() {
   const { clearFilters, wallets, page, setPage, pageSize, getWallets, totalCount } = useWallet();
@@ -83,7 +84,7 @@ export default function DataTable() {
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }} className="container">
-      <TableContainer sx={{ maxHeight: '70vh' }}>
+      <TableContainer sx={{ maxHeight: '85vh' }}>
         <Toolbar className="table-options">
           <Typography
               sx={{ flex: '1 1 100%' }}
@@ -96,7 +97,7 @@ export default function DataTable() {
 
           <div className="btns">
             <button className="clear-filters" type="button" onClick={() => handleClear()}>
-              Limpar filtros
+              <XMarkIcon />
             </button>
 
             <BtnExport wallets={wallets} columns={[...columns]} className="export export-csv">
@@ -104,7 +105,7 @@ export default function DataTable() {
             </BtnExport>
           </div>
         </Toolbar>
-        <Table stickyHeader aria-label="sticky table">
+        <Table stickyHeader aria-label="sticky table" size="small">
           <TableHead>
             <TableRow>
               {columns.map((column) => (

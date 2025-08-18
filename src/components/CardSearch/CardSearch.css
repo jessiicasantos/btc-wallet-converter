@@ -10,7 +10,7 @@
 }
 
 .card-search > .input-fields {
-    @apply flex-wrap gap-3 w-full;
+    @apply gap-3 w-full flex-col sm:flex-row;
 }
 
 .card-search > .input-fields > .MuiFormControl-root {
@@ -26,7 +26,7 @@
 }
 
 .card-search .search {
-    @apply max-h-10;
+    @apply max-h-10 mt-2 sm:mt-0;
 }
 
 .search > img {

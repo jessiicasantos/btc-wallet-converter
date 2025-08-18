@@ -1,5 +1,5 @@
 import { Box, TextField } from "@mui/material";
-import MagnyfyinGlassIcon from '../../assets/magnifying-glass-icon.svg';
+import MagnyfyinGlassIcon from '../../assets/magnifying-glass-icon';
 import './CardSearch.css';
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -42,7 +42,7 @@ const CardSearch = () => {
       </div>
 
       <button className="search" type="submit">
-        <img src={MagnyfyinGlassIcon} alt="Search Icon" />
+        <MagnyfyinGlassIcon />
         Buscar
       </button>
     </Box>
