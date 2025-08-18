@@ -1,5 +1,3 @@
-import { createContext } from "react";
-
 export type AlertType = 'success' | 'error' | null;
 
 export interface AlertContextProps {

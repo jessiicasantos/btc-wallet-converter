@@ -1,34 +1,27 @@
 import { Box, Typography } from "@mui/material";
 import { useModal } from "../../context/ModalContext/ModalContext";
 import BasicModal from "../BasicModal/BasicModal";
-// import TrashIcon from '../../assets/trash-icon.svg';
 import './DeleteModal.css';
-import { useWallet } from "../../context/WalletContext/WalletContext";
-import axios from "axios";
 import { useAlert } from "../../context/AlertContext/AlertContext";
+import { useWallet } from "../../context/WalletContext/WalletContext";
 import TrashIcon from "../../assets/trash-icon";
+import type React from "react";
 
 const DeleteModal = () => {
   const { showAlert } = useAlert();
   const { modal, closeModal } = useModal();
   const { deleteWallet } = useWallet();
 
-  const handleDelete = async (e: any) => {
+  const handleDelete = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
-      let response = await axios.delete(
-        `http://localhost:3000/users/${modal.data.id}`
-      );
-
-      if(response.status === 200 || response.status === 204) {
-        deleteWallet(modal.data.id);
-        showAlert('Carteira removida com sucesso!', 'success');
-        closeModal();
-      }
+      await deleteWallet(modal.data.id);
+      showAlert('Carteira removida com sucesso!', 'success');
+      closeModal();
     } catch(error) {
       showAlert('Erro ao remover carteira!', 'error');
-      console.error('Errooo!!! \n', error);
+      console.error('Erro ao remover carteira \n', error);
     }
   }
 
@@ -38,7 +31,7 @@ const DeleteModal = () => {
         component="form"
         noValidate
         autoComplete="off"
-        className=""
+        className="form-delete-modal"
       >
         <div className="circle">
           <TrashIcon stroke="#E22849" className="icon" />

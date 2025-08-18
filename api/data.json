@@ -625,92 +625,20 @@
       "valor_btc": 0.00386344
     },
     {
-      "id": "1755268925977",
-      "valor_carteira": 32005,
-      "email": "lucy@neves.com",
+      "valor_carteira": 100,
+      "email": "rafaoliveira@gmail.com",
+      "sobrenome": "Oliveira",
+      "nome": "Rafael",
+      "id": 1755546248059,
+      "valor_btc": 0.00015785
+    },
+    {
+      "valor_carteira": 33,
+      "email": "ananeves@gov.br",
       "sobrenome": "Neves",
-      "nome": "Luciana",
-      "valor_brl": 32005,
-      "valor_btc": 0.05014163
-    },
-    {
-      "id": "1755268956924",
-      "valor_carteira": 222,
-      "email": "joao@yahoo.com.br",
-      "sobrenome": "da SIlva Pereira",
-      "nome": "João",
-      "valorBrl": 0.00347393,
-      "valor_btc": 0.00034753,
-      "valor_brl": 222
-    },
-    {
-      "valor_carteira": 356,
-      "email": "car@sd.ds",
-      "sobrenome": "Meiriles",
-      "nome": "Carla",
-      "id": "1755379703795",
-      "valor_btc": 0.00055616,
-      "valor_brl": 356
-    },
-    {
-      "valor_carteira": 35,
-      "email": "ravi@gmail.com",
-      "sobrenome": "Ravioli",
-      "nome": "Julian",
-      "id": "1755381008273",
-      "valor_btc": 0.00005483,
-      "valor_brl": 35
-    },
-    {
-      "valor_carteira": 124,
-      "email": "car@gmail.com",
-      "sobrenome": "Carvalho",
-      "nome": "Roberta",
-      "id": "1755383050870",
-      "valor_btc": 0.00019428,
-      "valor_brl": 124
-    },
-    {
-      "valor_carteira": 554,
-      "email": "nev@yahoo.com",
-      "sobrenome": "Neves",
-      "nome": "Maria",
-      "id": "1755383276888",
-      "valor_btc": 0.00086798,
-      "valor_brl": 554
-    },
-    {
-      "valor_carteira": 55000,
-      "email": "rai@outlook.com.br",
-      "sobrenome": "Lopes",
-      "nome": "Raiane",
-      "id": "1755404736334",
-      "valor_btc": 0.08599649
-    },
-    {
-      "valor_carteira": 56000,
-      "email": "rafaela@yahoo.com.br",
-      "sobrenome": "Gonçalves",
-      "nome": "Rafaela",
-      "id": "1755452817281",
-      "valor_btc": 0.08735518
-    },
-    {
-      "valor_carteira": 99987,
-      "email": "riba@gmail.com",
-      "sobrenome": "Ribeiro",
-      "nome": "Júlia",
-      "id": "1755452938656",
-      "valor_btc": 0.15591664
-    },
-    {
-      "valor_carteira": 234,
-      "email": "sampa@yahoo.com",
-      "sobrenome": "Sampaio",
-      "nome": "Gabriela",
-      "id": "1755453154995",
-      "valor_btc": 0.00036542,
-      "valor_brl": 234
+      "nome": "Ana",
+      "id": 1755546285195,
+      "valor_btc": 0.00005209
     }
   ]
 }

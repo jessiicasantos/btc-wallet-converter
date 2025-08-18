@@ -21,10 +21,8 @@ export default function DataTable() {
   const { wallets, page, setPage, pageSize, getWallets, totalCount } = useWallet();
 
   useEffect(() => {
-    if(wallets.length < 1) {
       getWallets();
-    }
-  }, []);
+  }, [page, pageSize]);
 
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(even)': {
@@ -71,18 +69,15 @@ export default function DataTable() {
 
   const handlePage = (newPage: number) => {
     setPage(newPage);
-    getWallets({}, newPage, pageSize);
   }
 
   const handleClear = () => {
     setPage(1);
-    getWallets({}, 1, pageSize);
   };
-
 
   const totalPages = Math.ceil(totalCount / pageSize);
 
-  const pageContent = wallets.slice((page - 1) * pageSize, page * pageSize);
+  const pageContent = wallets;
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }} className="container">
@@ -165,7 +160,7 @@ export default function DataTable() {
       <hr />
       
       <div className="rows-wrapper">
-        <h6>{wallets.length} registro(s)</h6>
+        <h6>{totalCount} registro(s)</h6>
 
         <Pagination 
           color="primary"

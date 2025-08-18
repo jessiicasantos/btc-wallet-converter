@@ -9,18 +9,20 @@ import { useAlert } from "../../context/AlertContext/AlertContext";
 import { useWallet } from "../../context/WalletContext/WalletContext";
 import { useState } from "react";
 import { convertToBTC } from "../../utils/conversion";
+import type { WalletFormData } from "../../types/Wallet";
 
 const AddModal = () => {
   const { showAlert } = useAlert();
   const { modal, closeModal } = useModal();
-  const { addWallet } = useWallet();
-  const { register, handleSubmit, formState: { errors } } = useForm({ 
+  const { addWallet  } = useWallet();
+  const { register, handleSubmit, formState: { errors } } = useForm<WalletFormData>({ 
     resolver: yupResolver(carteirasValidationSchema)
   });
   const [ quote, setQuote ] = useState(0);
 
-  const handleConversion = async (event: any) => {
-    const value = event.target.value;
+  const handleConversion = async (event: React.FocusEvent<HTMLInputElement>): Promise<void> => {
+    const value = parseFloat(event.target.value);
+    if (isNaN(value)) return;
 
     try {
       let response = await axios.get(
@@ -43,30 +45,20 @@ const AddModal = () => {
   }
   
   const onSubmit = async (data: any) => {
-    data.id = Date.now().toString();
-
     const valorBrl = parseFloat(data.valor_carteira);
     const valorBtc = await convertToBTC(valorBrl);
 
     const newWallet = {
       ...data,
-      id: Date.now().toString(),
+      id: Date.now(),
       valor_carteira: valorBrl,
       valor_btc: valorBtc
     };
 
     try {
-      let response = await axios.post(
-        'http://localhost:3000/users/',
-        newWallet
-      );
+      const result = await addWallet(newWallet);
 
-      if(response.status === 201) {
-        console.log('Carteira adicionada com sucesso!');
-
-        console.log('newWallet: ', newWallet);
-        
-        addWallet(newWallet);
+      if(result?.success) {        
         showAlert('Carteira adicionada com sucesso!', 'success');
         closeModal();
       }
@@ -96,6 +88,7 @@ const AddModal = () => {
             <TextField 
               label="Valor de compra" 
               {...register("valor_carteira")} 
+              placeholder="0,00"
               error={!!errors.valor_carteira} 
               helperText={errors.valor_carteira?.message} 
               slotProps={{

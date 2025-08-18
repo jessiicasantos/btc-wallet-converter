@@ -18,7 +18,6 @@ const style = {
 const BasicModal: React.FC<ModalProps> = ({ children, onClose, open, className }) => {
   return (
     <div>
-      {/* <Button>Open modal</Button> */}
       <Modal
         open={open}
         onClose={onClose}
