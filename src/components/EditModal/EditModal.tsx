@@ -38,13 +38,9 @@ const EditModal = () => {
     if (isNaN(value)) return;
 
     const btcValue = await convertToBTC(value);
-    const formatBTC = new Intl.NumberFormat("pt-BR", {
-      style: "decimal",
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 8,
-    }).format(btcValue);
+    const formatBTC = setQuote(btcValue)
 
-    setQuote(parseFloat(formatBTC));
+    // setQuote(parseFloat(formatBTC));
   };
 
   const onSubmit = async (data: WalletFormData) => {

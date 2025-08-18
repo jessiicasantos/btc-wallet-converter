@@ -1,17 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-
-type ModalType = 'add' | 'edit' | 'delete' | null;
-
-interface ModalState {
-  type: ModalType;
-  data?: any;
-}
-
-interface ModalContextProps {
-  modal: ModalState;
-  openModal: (type: ModalType, data?: any) => void;
-  closeModal: () => void;
-}
+import type { ModalContextProps, ModalState, ModalType } from '../../types/BasicModal';
 
 const ModalContext = createContext<ModalContextProps | undefined>(undefined);
 

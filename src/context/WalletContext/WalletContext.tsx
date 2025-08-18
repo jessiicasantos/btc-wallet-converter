@@ -1,12 +1,18 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 import type { Wallet, WalletContextProps } from "../../types/Wallet";
 import walletReducer, { initialState } from "./WalletReducer";
 import axios from "axios";
+import type { WalletFilters } from '../../types/Wallet';
 
 const WalletContext = createContext<WalletContextProps | undefined>(undefined);
 
 export const WalletProvider = ({ children }: { children: React.ReactNode }) => {
   const [ state, dispatch ] = useReducer(walletReducer, initialState);
+  const [filters, setFilters] = useState<WalletFilters>({});
+
+  const clearFilters = () => {
+    setFilters({});
+  }
   
   const getWallets = async (filters = state.filters, page = state.page, limit = state.pageSize) => {
     try {
@@ -82,18 +88,19 @@ export const WalletProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <WalletContext.Provider
     value={{
-      wallets: state.wallets,
-      page: state.page,
-      pageSize: state.pageSize,
-      totalCount: state.totalCount,
-      getWallets,
-      addWallet,
-      editWallet,
-      deleteWallet,
-      setPage: (p: number) => dispatch({ type: 'SET_PAGE', payload: p }),
-      setFilters: (f: Record<string, string>) => dispatch({ type: 'SET_FILTERS', payload: f }),
-      setWallets: (wallets: Wallet[]) => dispatch({ type: 'SET_WALLETS', payload: wallets })
-    }}
+        wallets: state.wallets,
+        page: state.page,
+        pageSize: state.pageSize,
+        totalCount: state.totalCount,
+        getWallets,
+        addWallet,
+        editWallet,
+        deleteWallet,
+        setPage: (p: number) => dispatch({ type: 'SET_PAGE', payload: p }),
+        setFilters: (f: Record<string, string>) => dispatch({ type: 'SET_FILTERS', payload: f }),
+        setWallets: (wallets: Wallet[]) => dispatch({ type: 'SET_WALLETS', payload: wallets }),
+        clearFilters
+      }}
     >
       {children}
     </WalletContext.Provider>

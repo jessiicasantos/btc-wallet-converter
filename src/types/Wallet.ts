@@ -24,7 +24,8 @@ export interface WalletContextProps {
   setPage: any;
   pageSize: number;
   totalCount: number;
-  setFilters: (f: Record<string, string>) => void;
+  setFilters: (filters: WalletFilters) => void;
+  clearFilters: () => void;
 }
 
 export type WalletFormData = {
@@ -41,6 +42,12 @@ export type WalletState = {
   totalCount: number;
   filters: Record<string, string>;
 };
+
+ export type WalletFilters = {
+    nome?: string;
+    sobrenome?: string;
+    email?: string;
+}
 
 export type WalletAction =
   | { type: "SET_WALLETS"; payload: Wallet[] }

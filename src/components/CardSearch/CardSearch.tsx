@@ -6,15 +6,16 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { searchValidationSchema } from "../../validation/carteirasValidation";
 import { useWallet } from "../../context/WalletContext/WalletContext";
+import type { WalletFilters } from "../../types/Wallet";
 
 const CardSearch = () => {
   const { register, handleSubmit, formState: { errors } } = useForm({ 
     resolver: yupResolver(searchValidationSchema)
   });
   const { getWallets, pageSize, setPage } = useWallet();
-  const [filters, setFilters] = useState<{nome?: string, sobrenome?: string, email?: string}>({});
+  const [filters, setFilters] = useState<WalletFilters>({});
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: WalletFilters) => {
     const activeFilters: any = {};
 
     if(data.nome) activeFilters.nome = data.nome;

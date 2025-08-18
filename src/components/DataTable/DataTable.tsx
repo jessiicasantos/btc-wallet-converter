@@ -18,7 +18,7 @@ import BtnExport from '../BtnExport/BtnExport';
 import TrashIcon from '../../assets/trash-icon';
 
 export default function DataTable() {
-  const { wallets, page, setPage, pageSize, getWallets, totalCount } = useWallet();
+  const { clearFilters, wallets, page, setPage, pageSize, getWallets, totalCount } = useWallet();
 
   useEffect(() => {
       getWallets();
@@ -72,7 +72,9 @@ export default function DataTable() {
   }
 
   const handleClear = () => {
+    clearFilters();
     setPage(1);
+    getWallets({}, 1, pageSize);
   };
 
   const totalPages = Math.ceil(totalCount / pageSize);

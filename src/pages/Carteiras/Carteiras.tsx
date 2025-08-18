@@ -16,7 +16,6 @@ const Carteiras = () => {
       <CardSearch />
       <DataTable />
 
-      {/* modal add */}
       {modal.type === 'add' && <AddModal />}
     </div>
   );
