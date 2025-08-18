@@ -39,8 +39,6 @@ const EditModal = () => {
 
     const btcValue = await convertToBTC(value);
     const formatBTC = setQuote(btcValue)
-
-    // setQuote(parseFloat(formatBTC));
   };
 
   const onSubmit = async (data: WalletFormData) => {
@@ -69,8 +67,7 @@ const EditModal = () => {
 
   useEffect(() => {
     if (modal.type === "edit" && modal.data) {
-      const valorBrl =
-        modal.data.valor_carteira ?? modal.data.valor_brl ?? 0;
+      const valorBrl = modal.data.valor_carteira ?? modal.data.valor_brl ?? 0;
 
       const dataToReset: WalletFormData = {
         nome: modal.data.nome,
@@ -82,13 +79,7 @@ const EditModal = () => {
       reset(dataToReset);
 
       convertToBTC(valorBrl).then((btcValue) => {
-        const formatBTC = new Intl.NumberFormat("pt-BR", {
-          style: "decimal",
-          minimumFractionDigits: 8,
-          maximumFractionDigits: 8,
-        }).format(btcValue);
-
-        setQuote(parseFloat(formatBTC));
+        setQuote(btcValue);
       });
     }
   }, [modal, reset]);
