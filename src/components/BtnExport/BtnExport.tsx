@@ -1,13 +1,6 @@
 import React from "react";
-import type { Column } from "../../types/DataTable";
 import type { Wallet } from "../../types/Wallet";
-
-interface BtnExportProps {
-  wallets: Wallet[];
-  columns: Column[];
-  className?: string;
-  children?: React.ReactNode;
-}
+import type { BtnExportProps } from "../../types/Btn";
 
 const BtnExport: React.FC<BtnExportProps> = ({ wallets, columns, className, children }) => {
   const handleExport = () => {
