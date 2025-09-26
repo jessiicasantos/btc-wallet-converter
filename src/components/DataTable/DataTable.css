@@ -1,0 +1,115 @@
+@reference '../../index.css';
+
+.MuiTableContainer-root {
+    @apply border-b-2;
+}
+
+.MuiTableContainer-root > .MuiToolbar-root {
+    @apply p-0;
+}
+
+table .MuiTableRow-root {
+    @apply transition duration-[.3s] ease-in-out;
+}
+
+table thead .MuiTableCell-root {
+    @apply font-bold border-b-3;
+}
+
+table thead .MuiTableCell-root,
+.MuiTableContainer-root {
+    @apply border-gray-5 text-gray-1;
+}
+
+#tableTitle {
+    @apply text-lg font-semibold;
+}
+
+table .edit {
+    @apply mr-2;
+}
+
+table .edit,
+table .delete {
+    @apply border-0 rounded-full inline-block;
+}
+
+table tbody button {
+    @apply p-2;
+}
+
+table tbody button img {
+    @apply size-[20px];
+}
+
+table tbody button:hover,
+table tbody button:focus {
+    @apply bg-gray-200;
+}
+
+div > .MuiPaper-root {
+    @apply pt-[25px] pb-[16px] px-[20px] shadow-xl;
+}
+
+.MuiPaper-root hr {
+    @apply p-0 mt-[35px] mb-[21px] h-[2px] flex items-center justify-center bg-gray-3 border-0;
+}
+
+table .MuiTableCell-root {
+    @apply p-[8px_10px] text-gray-1;
+}
+
+.MuiPagination-root .MuiButtonBase-root {
+    @apply rounded-sm size-fit min-w-[24px] min-h-[28px] text-sm font-semibold text-gray-1;
+}
+
+.MuiPagination-root .MuiButtonBase-root:hover {
+    @apply bg-blue-link text-white;
+}
+
+.rows-wrapper {
+    @apply flex justify-between items-center text-gray-500;
+}
+
+.rows-wrapper h6 {
+    @apply text-sm;
+}
+
+.rows-wrapper .MuiPagination-root {
+    @apply ml-30;
+}
+
+.rows-wrapper > .MuiButtonBase-root {
+    @apply bg-[#1565c0];
+}
+
+.table-empty-message {
+    @apply font-bold text-gray-500 p-[20px];
+}
+
+.table-options .btns {
+    @apply flex flex-col justify-end items-end sm:flex-row;
+}
+
+.table-options .btns button {
+    @apply block w-max h-max;
+}
+
+table > .MuiTableCell-root {
+    height: 10px;
+    padding: 0 14px !important;
+}
+
+
+table > .MuiTableCell-root {
+    height: 10px;
+    padding: 0 14px !important;
+}
+
+.btns > button.clear-filters {
+    @apply mr-4 mb-[5px] sm:mb-0 border-error-red px-2 stroke-error-red;
+}
+
+.btns > button.clear-filters:hover {
+    @apply bg-error-red stroke-white;
+}

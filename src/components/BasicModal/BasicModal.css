@@ -1,0 +1,65 @@
+@reference '../../index.css';
+
+.modal > .MuiBox-root {
+    @apply max-w-[80vw] xl:max-w-[42vw] w-full mx-auto p-6 xl:p-12 rounded-lg border-0;
+}
+
+.modal h3 {
+    @apply relative text-xl font-bold text-gray-1 mb-12;
+}
+
+.modal h3::after {
+    @apply content-[''] absolute block border-b-2 border-gray-3 w-full top-[45px];
+}
+
+.modal .input-fields > div,
+.modal .input-fields .buy-fields {
+    @apply mb-2 flex;
+}
+
+.modal .buy-fields {
+    @apply flex-col sm:flex-row;
+}
+
+.modal .buy-fields,
+.modal .btns {
+    @apply flex items-center;
+}
+
+.modal .input-fields > div:not(.buy-fields) {
+    @apply flex-wrap;
+}
+
+.modal .btns {
+    @apply justify-end mt-[35px];
+}
+
+.modal .input-fields .buy-fields input {
+    @apply max-w-[222px] w-full;
+}
+
+.modal .buy-fields > div {
+    @apply w-full m-0 sm:mr-[10px] sm:w-fit;
+}
+
+.modal .buy-fields > h3 {
+    @apply text-xl font-bold m-[0_0_0_10px];
+}
+
+.modal .circle {
+    @apply p-[10px_20px] border-2 border-error-red rounded-[100%] mb-[25px] w-fit h-fit mx-auto;
+}
+
+.modal .circle > svg,
+.modal .circle > img {
+    @apply w-[35px] h-[45px];
+}
+
+.modal .icon {
+    @apply size-[60px];
+}
+
+.add-modal .btns .cancel,
+.edit-modal .btns .cancel {
+    @apply mr-[20px]
+}

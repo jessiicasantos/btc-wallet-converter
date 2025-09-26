@@ -1,0 +1,69 @@
+@reference '../../index.css';
+
+.navbar {
+    @apply relative bg-white py-2;
+}
+
+.navbar > div > div {
+    @apply relative flex h-16 items-center justify-between;
+}
+
+.navbar .left {
+    @apply flex items-center justify-center sm:items-stretch sm:justify-start;
+}
+
+.navbar .logo {
+    @apply flex shrink-0 items-center;
+}
+
+.navbar .logo img {
+    @apply h-7.5 sm:h-8.5 w-auto;
+}
+
+.profile {
+    @apply flex items-center sm:static sm:inset-auto sm:ml-6;
+}
+
+.profile-wrapper {
+    @apply relative ml-3;
+}
+
+.profile .open-user-menu {
+    @apply relative flex flex-wrap items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-link text-gray-1 cursor-auto font-semibold text-sm p-1 sm:mr-[20px];
+}
+
+.open-user-menu > span {
+    @apply absolute -inset-1.5;
+}
+
+.open-user-menu > span + span {
+    @apply sr-only;
+}
+
+.open-user-menu > img {
+    @apply mr-2 size-8 rounded-full bg-gray-800 outline -outline-offset-1 outline-white;
+}
+
+.profile .open-user-menu > b {
+    @apply font-semibold hidden sm:block;
+}
+
+.profile .links {
+    @apply absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 outline -outline-offset-1 outline-white transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in
+}
+
+.profile .links a {
+    @apply block px-4 py-2 text-sm text-gray-800 data-focus:bg-white data-focus:outline-hidden;
+}
+
+.sign-out {
+    @apply relative rounded-full p-1 text-gray-800 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500;
+}
+
+.sign-out > span {
+    @apply sr-only;
+}
+
+.sign-out > img {
+    @apply size-[25px];
+}

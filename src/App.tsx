@@ -1,0 +1,18 @@
+import { Outlet } from 'react-router';
+import './App.css'
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import GlobalAlert from './components/GlobalAlert/GlobalAlert';
+
+function App() {
+  return (
+    <>
+      <GlobalAlert />
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </>
+  )
+}
+
+export default App

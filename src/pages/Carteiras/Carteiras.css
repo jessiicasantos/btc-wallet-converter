@@ -1,0 +1,9 @@
+@reference '../../index.css';
+
+#carteiras header {
+    @apply flex flex-wrap items-center justify-between;
+}
+
+#carteiras h2 {
+    @apply text-3xl font-bold;
+}
