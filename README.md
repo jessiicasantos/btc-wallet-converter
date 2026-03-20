@@ -1,4 +1,9 @@
-# React + TypeScript + Vite
+# BTC Wallet Converted
+UI for Bitcoin Wallets management and BTC/BRL conversions
+
+![alt text](image.png)
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
