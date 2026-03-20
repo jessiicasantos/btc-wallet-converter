@@ -1,4 +1,4 @@
-# BTC Wallet Converted
+# BTC Wallet Converter
 UI for Bitcoin Wallets management and BTC/BRL conversions
 
 ![alt text](image.png)
